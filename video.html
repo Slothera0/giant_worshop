@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<meta name = "viewport" content = "width = device-width, initial-scale = 1">
+	<link rel = "stylesheet" href = "https://www.w3schools.com/lib/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<style>
+        body {
+            margin: 0;
+			overflow: hidden;
+            display: flex;
+            overflow: hidden;
+        }
+
+        #videoContainer {
+            display: flex;
+			flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+
+        .video {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+	<header class = "w3-container w3-teal w3-top">
+		<h1>Hello World!</h1>
+	 </header>
+	
+	 <div id="videoContainer">
+	 <video loop preload="auto" autoplay muted>
+		<source src="joailler.mp4" type="video/mp4">
+		<source src="joailler.mp4" type="video/ogg">
+	</video>
+	<video loop preload="auto" autoplay muted>
+		<source src="gardien.mp4" type="video/mp4">
+		<source src="gardien.mp4" type="video/ogg">
+	</video>
+	<video loop preload="auto" autoplay muted>
+		<source src="soudeur.mp4" type="video/mp4">
+		<source src="soudeur.mp4" type="video/ogg">
+	</video>
+	</div>
+	<footer class="w3-bottom">
+		<a href="form.html" class="w3-button w3-round-large fa fa-heart w3-xxlarge w3-col" style="width:25%"></a>
+		<a href="video.html" class="w3-button w3-round-large fa fa-play w3-xxlarge w3-col" style="width:25%"></a>
+		<a href="school.html" class="w3-button w3-round-large fa fa-mortar-board w3-xxlarge w3-col" style="width:25%"></a>
+		<a href="account.html" class="w3-button w3-round-large fa fa-user w3-xxlarge w3-col" style="width:25%"></a>
+	</footer>
+
+	
+    <script>
+        const videoContainer = document.getElementById('videoContainer');
+        let currentIndex = 0;
+
+        document.addEventListener('mousedown', startSwipe);
+        document.addEventListener('touchstart', startSwipe);
+
+        document.addEventListener('mouseup', endSwipe);
+        document.addEventListener('touchend', endSwipe);
+
+        let startY;
+
+        function startSwipe(e) {
+            startY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
+        }
+
+        function endSwipe(e) {
+            const endY = e.type === 'touchend' ? e.changedTouches[0].clientY : e.clientY;
+            const deltaY = endY - startY;
+
+            if (deltaY > 30) {
+                showPreviousVideo();
+            } else if (deltaY < -30) {
+                showNextVideo();
+            }
+        }
+
+        function showPreviousVideo() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateVideoContainer();
+            }
+        }
+
+        function showNextVideo() {
+            if (currentIndex < videoContainer.children.length - 1) {
+                currentIndex++;
+                updateVideoContainer();
+            }
+        }
+
+        function updateVideoContainer() {
+            const newTransformValue = -currentIndex * 95 + 'vh';
+            videoContainer.style.transform = 'translateY(' + newTransformValue + ')';
+        }
+    </script>
+</body>
+</html>
