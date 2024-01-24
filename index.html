@@ -10,94 +10,218 @@
         body {
             margin: 0;
 			overflow: hidden;
+			height: 100%;
             display: flex;
-            overflow: hidden;
         }
 
-        #videoContainer {
-            display: flex;
-			flex-direction: column;
-            transition: transform 0.3s ease;
+		.video-container {
+		    display: flex;
+		    flex-direction: column;
+		    align-items: center;
+			transition: transform 0.3s ease;
+		}
+
+		.video-card {
+		    position: relative;
+		}
+
+		.video-card.swiped .video-description {
+            display: block;
         }
 
-        .video {
-            width: 100vw;
-            height: 100vh;
+		.video-card.swiped .video {
+            display: none;
         }
+
+		.video-description {
+		    background-color: #f4f4f4;
+		    padding: 10px;
+		    border-radius: 8px;
+		    margin-top: 85px;
+			text-align: center;
+			display: none;
+			height: 1190px;
+			width: 680px;
+		}
     </style>
+
 </head>
 <body>
 	<header class = "w3-container w3-teal w3-top">
 		<h1>Hello World!</h1>
-	 </header>
+	</header>
 	
-	 <div id="videoContainer">
-	 <video loop preload="auto" autoplay muted>
+	<div id="videoContainer" class="video-container">
+	
+	<div class="video-card" data-index="0">
+	<video class="video" loop preload="auto" autoplay muted>
 		<source src="joailler.mp4" type="video/mp4">
 		<source src="joailler.mp4" type="video/ogg">
 	</video>
-	<video loop preload="auto" autoplay muted>
+	<div class="video-description w3-card-4">
+		<img src="avatar.jpg" alt="Avatar" class="w3-left w3-circle"  width="100" height="100">
+  		<h1>Leslie Tourneville</h1>
+		<br>
+		<hr style="height:1px;color:lightgray;background-color:lightgray">
+		<div class="w3-large">
+			<p class="w3-margin w3-card w3-lightgray w3-hover-shadow w3-round-large">
+				Mes formations: CAP boulangerie, 42 Lyon, BTS joaillerie
+			</p>
+			<p class="w3-margin w3-card w3-lightgray w3-hover-shadow w3-round-large">
+				Mes passions: le poney, le travail manuel, les series netflix
+			</p>
+			<article class="w3-container w3-margin w3-border">
+				<br>
+				<div class="w3-bar-item w3-round-xxlarge w3-blue w3-right w3-padding w3-text-black">Bonjour</div>
+ 				<br>
+				<br>
+				<div class="w3-bar-item w3-round-xxlarge w3-light-blue w3-left w3-padding w3-text-black">Salut</div>
+ 			 	<br>
+				<br>
+				<div class="w3-bar-item w3-round-xxlarge w3-blue w3-right w3-padding w3-text-black">J'aimerai te poser des questions sur ton metier</div>
+				<br>
+				<br>
+				<div class="w3-bar-item w3-round-xxlarge w3-light-blue w3-left w3-padding w3-text-black">Oui bien sur qu'est ce que tu veux savoir ?</div>
+				<br>
+				<br>
+				<div class="w3-bar-item w3-round-xxlarge w3-blue w3-right w3-padding w3-text-black">Quelles compétences sont cruciales dans ce domaine ?</div>
+				<br>
+				<br>
+				<div class="w3-bar-item w3-round-xxlarge w3-light-blue w3-left w3-padding w3-text-black">Beaucoup de patience et de la minutie</div>
+				<br>
+				<br>
+				<div class="w3-bar-item w3-round-xxlarge w3-light-blue w3-left w3-padding w3-text-black">Et aussi une bonne comprehension des materiaux</div>
+				<br>
+				<br>
+				<div class="w3-bar-item w3-round-xxlarge w3-blue w3-right w3-padding w3-text-black">Qu'est-ce qui vous passionne le plus dans votre métier ?</div>
+				<br>
+				<br>
+				<div class="w3-bar-item w3-round-xxlarge w3-light-blue w3-left w3-padding w3-text-black">Transformer des idées en pièces uniques</div>
+				<br>
+				<br>
+				<div class="w3-bar-item w3-round-xxlarge w3-light-blue w3-left w3-padding w3-text-black">C'est vraiment mon point prefere</div>
+				<br>
+				<br>
+				<div class="w3-bar-item w3-round-xxlarge w3-blue w3-right w3-padding w3-text-black">Merci d'avoir pris le temps de me repondre <i class="fa fa-smile-o"></i></div>
+				<br>
+				<br>
+				<div class="w3-bar-item w3-round-xxlarge w3-light-blue w3-left w3-padding w3-text-black">De rien</div>
+				<br>
+				<br>
+				<br>
+			</article>
+			<form class="w3-container">
+				<input class="w3-input w3-threequarter" type="text">
+				<button class="w3-button w3-round-large w3-quarter w3-blue">Send</button>
+			</form>
+		</div>
+
+	</div>
+	</div>
+
+	<div class="video-card" data-index="1">
+	<video class="video" loop preload="auto" autoplay muted>
 		<source src="gardien.mp4" type="video/mp4">
 		<source src="gardien.mp4" type="video/ogg">
 	</video>
-	<video loop preload="auto" autoplay muted>
+	<div class="video-description">
+		<h2>Video 1</h2>
+		<p>Description de la vidéo 1.</p>
+	</div>
+	</div>
+
+	<div class="video-card" data-index="2">
+	<video class="video" loop preload="auto" autoplay muted>
 		<source src="soudeur.mp4" type="video/mp4">
 		<source src="soudeur.mp4" type="video/ogg">
 	</video>
+	<div class="video-description">
+		<h2>Video 1</h2>
+		<p>Description de la vidéo 1.</p>
 	</div>
+	</div>
+
+	</div>
+
+
 	<footer class="w3-bottom">
 		<a href="form.html" class="w3-button w3-round-large fa fa-heart w3-xxlarge w3-col" style="width:25%"></a>
-		<a href="video.html" class="w3-button w3-round-large fa fa-play w3-xxlarge w3-col" style="width:25%"></a>
+		<a href="index.html" class="w3-button w3-round-large fa fa-play w3-xxlarge w3-col" style="width:25%"></a>
 		<a href="school.html" class="w3-button w3-round-large fa fa-mortar-board w3-xxlarge w3-col" style="width:25%"></a>
 		<a href="account.html" class="w3-button w3-round-large fa fa-user w3-xxlarge w3-col" style="width:25%"></a>
 	</footer>
 
 	
     <script>
-        const videoContainer = document.getElementById('videoContainer');
-        let currentIndex = 0;
+		document.addEventListener('DOMContentLoaded', () => {
+            const videoContainer = document.getElementById('videoContainer');
+            let currentVideoIndex = 0;
+            let startX;
+            let startY;
 
-        document.addEventListener('mousedown', startSwipe);
-        document.addEventListener('touchstart', startSwipe);
+            videoContainer.addEventListener('mousedown', startSwipe);
+            videoContainer.addEventListener('touchstart', startSwipe);
 
-        document.addEventListener('mouseup', endSwipe);
-        document.addEventListener('touchend', endSwipe);
+            function startSwipe(e) {
+                startX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+                startY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
 
-        let startY;
-
-        function startSwipe(e) {
-            startY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
-        }
-
-        function endSwipe(e) {
-            const endY = e.type === 'touchend' ? e.changedTouches[0].clientY : e.clientY;
-            const deltaY = endY - startY;
-
-            if (deltaY > 30) {
-                showPreviousVideo();
-            } else if (deltaY < -30) {
-                showNextVideo();
+                document.addEventListener('mouseup', endSwipe);
+                document.addEventListener('touchend', endSwipe);
+                document.addEventListener('mousemove', handleSwipe);
+                document.addEventListener('touchmove', handleSwipe);
             }
-        }
 
-        function showPreviousVideo() {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateVideoContainer();
+            function endSwipe(e) {
+			    const endX = e.type === 'touchend' ? e.changedTouches[0].clientX : e.clientX;
+			    const endY = e.type === 'touchend' ? e.changedTouches[0].clientY : e.clientY;
+			    const deltaX = endX - startX;
+			    const deltaY = endY - startY;
+
+			    if (Math.abs(deltaY) > Math.abs(deltaX)) {
+			        if (deltaY > 30) {
+			            showPreviousVideo();
+			        } else if (deltaY < -30) {
+			            showNextVideo();
+			        }
+			    } else {
+			        if (deltaX > 30) {
+			            hideDescription();
+			        } else if (deltaX < -30) {
+			            showDescription();
+			        }
+			    }
+			}
+
+            function showPreviousVideo() {
+                if (currentVideoIndex > 0) {
+                    currentVideoIndex--;
+                    updateVideoContainer();
+                }
             }
-        }
 
-        function showNextVideo() {
-            if (currentIndex < videoContainer.children.length - 1) {
-                currentIndex++;
-                updateVideoContainer();
+            function showNextVideo() {
+                if (currentVideoIndex < videoContainer.children.length - 1) {
+                    currentVideoIndex++;
+                    updateVideoContainer();
+                }
             }
-        }
 
-        function updateVideoContainer() {
-            const newTransformValue = -currentIndex * 95 + 'vh';
-            videoContainer.style.transform = 'translateY(' + newTransformValue + ')';
-        }
+            function updateVideoContainer() {
+                const newTransformValue = -currentVideoIndex * 95 + 'vh';
+                videoContainer.style.transform = 'translateY(' + newTransformValue + ')';
+            }
+
+            function showDescription() {
+                const currentVideoCard = document.querySelector(`.video-card[data-index="${currentVideoIndex}"]`);
+                currentVideoCard.classList.add('swiped');
+            }
+
+            function hideDescription() {
+                const currentVideoCard = document.querySelector(`.video-card[data-index="${currentVideoIndex}"]`);
+                currentVideoCard.classList.remove('swiped');
+            }
+        });
     </script>
 </body>
 </html>
